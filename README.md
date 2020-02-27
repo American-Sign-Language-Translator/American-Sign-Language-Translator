@@ -1,4 +1,4 @@
-# ASL 
+# ASL TRANSLATOR
 Udacity 
 
 BACKGROUND

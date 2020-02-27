@@ -21,9 +21,9 @@ app also requires an internet connection. The translator requires a camera
 (device id 0 is default) to capture the ASL gestures for translation. The ASL Translator 
 relies on the following python libraries…
 
-a. OpenCV(installed with Openvino)
+a. OpenCV 4.0.1
 
-b. numpy(installed with Openvino)
+b. numpy1.18
 
 c. gTTS 2.1.1
 
@@ -36,25 +36,25 @@ f. argsparser
 
 OPERATION INSTRUCTIONS
 
-1.) In a terminal, run ‘python3 ASL.py’ (-v to set the video location
+1.) In a terminal, locate the directory where all the files are and run ‘python3 ASL.py’ (-v to set the video location
 0 is default, -d to set the device ‘CPU’ is default)
 
 2.) The app loops through a face detection model until a face is detected.
 
-3.) Once detection occurs, the sign language recognition model takes over.
+3.) Once detection occurs, the sign language recognition model takes over. The user is cued to begin signing visually (the camera LED will blink once) and audibly (user will hear a 'beep').
 
 4.) The translator will recognize gestures from the MSASL-100 dataset (see 
 signs.py for the full list of recognized signs).
 
-5.) The user is cued to start signing by the self facing camera LED blinking 
-and an audible ‘ding.’
-
-6.) The user is allowed 1 second per sign. The user can continue to sign until 
-the message is complete at which point the user should gesture the sign for 
+5.) The user is allowed 1 second per sign. The user can continue to sign until 
+the desired message is complete at which point the user should gesture the sign for 
 ‘READ’ to have the message audibly translated.
 
-7.) At this point the users may sign another message or sign ‘READ’ again to 
-close the app.
+6a.) Once the message is played back the user may step out of view from the camera and the app will wait until another face is detected before returning to step 3 or...
+
+b.) the users may sign another message or...
+
+c.) sign ‘READ’ again to close the app.
 
 MANIFEST
 

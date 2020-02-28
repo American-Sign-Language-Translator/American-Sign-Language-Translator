@@ -6,7 +6,7 @@ BACKGROUND
 ASL Translator is a gesture recognition app that uses previously trained models 
 to recognize and translate the American Sign Language(ASL). The translator 
 model uses the SD3 framework with a MobileNet V3 backbone. The ASL translator is 
-triggered by a face recognition model using the WIDER FACE detection benchmark. 
+triggered by a face detection model using the WIDER FACE detection benchmark. 
 The face detect network features a default MobileNet backbone that includes 
 depth-wise convolutions.
 
@@ -16,10 +16,9 @@ All the files in the manifest should be copied to the same folder. Openvino
 environment variables should be sourced and the translator should be run with a 
 python3 interpreter. The translator has been tested with Openvino 2020.1 and 
 Python3.6 but should work with any Python3 or recent Openvino version. 
-The audible portion currently requires VLC media player to be installed. The 
-app also requires an internet connection. The translator requires a camera 
-(device id 0 is default) to capture the ASL gestures for translation. The ASL Translator 
-relies on the following python libraries…
+The audible portion currently requires VLC media player to be installed and 
+an internet connection. To capture the ASL gestures for translation the camera 
+device id 0 (default). The ASL translator relies on the following python libraries…
 
 a. OpenCV 4.0.1
 
@@ -36,17 +35,16 @@ f. argsparser
 
 OPERATION INSTRUCTIONS
 
-1.) In a terminal, locate the directory where all the files are and run ‘python3 ASL.py’ (-v to set the video location
-0 is default, -d to set the device ‘CPU’ is default)
+1.) In a terminal, change to the directory where all the files are located and run ‘python3 ASL.py’ (-v to set the video location 0 is default, -d to set the device, ‘CPU’ is default)
 
-2.) The app loops through a face detection model until a face is detected.
+2.) The app loops through a face detection model until a face is detected in view of the camera.
 
 3.) Once detection occurs, the sign language recognition model takes over. The user is cued to begin signing visually (the camera LED will blink once) and audibly (user will hear a 'beep').
 
 4.) The translator will recognize gestures from the MSASL-100 dataset (see 
 signs.py for the full list of recognized signs).
 
-5.) The user is allowed 1 second per sign. The user can continue to sign until 
+5.) The user is allowed 1 second per sign and can continue to sign until 
 the desired message is complete at which point the user should gesture the sign for 
 ‘READ’ to have the message audibly translated.
 

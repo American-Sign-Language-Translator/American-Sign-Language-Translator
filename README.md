@@ -12,6 +12,8 @@ depth-wise convolutions.
 
 INSTALLATION/CONFIGURATION
 
+Install vlc media player( https://www.videolan.org/vlc/ )
+
 All the files in the manifest should be copied to the same folder. Openvino 
 environment variables should be sourced and the translator should be run with a 
 python3 interpreter. The translator has been tested with Openvino 2020.1 and 

@@ -3,6 +3,19 @@ Udacity
 
 BACKGROUND
 
+An estimated 1 in 1000 babies are born deaf and it is the #1 birth defect in the US. 
+According to the World Health Organization, 360,000,000 people worldwide suffer from disabling
+hearing loss. Each of these people has family, friends, acquaintences and coworkers that do not 
+use sign language and have great difficulty communicating with them. There is an overwhelming 
+need for a method for these people to communicate. 
+
+A gesture recognition tool is an ideal solution for this issue. Being able to open an app on 
+your phone and communicate with people who are hard of hearing would not only provide relief 
+for those suffering from deafness but it would also provide 360 million people to contribute 
+in a meaningful way without being held back by not getting their ideas and their message 
+across to the hearing community. The ASL Translator is a demonstration of one possible 
+method for resolving this issue.
+
 ASL Translator is a gesture recognition app that uses previously trained models 
 to recognize and translate the American Sign Language(ASL). The translator 
 model uses the SD3 framework with a MobileNet V3 backbone. The ASL translator is 
@@ -11,6 +24,7 @@ The face detect network features a default MobileNet backbone that includes
 depth-wise convolutions.
 
 ADDONS
+
 Ideally the translator would use facial recognition as an upgrade to just face 
 detection. This way the user could pick someone out of a crowd to communicate with. The app 
 Would also be in the form of a an apk so that the user would be able to translate 

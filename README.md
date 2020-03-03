@@ -10,9 +10,18 @@ triggered by a face detection model using the WIDER FACE detection benchmark.
 The face detect network features a default MobileNet backbone that includes 
 depth-wise convolutions.
 
+ADDONS
+Ideally the translator would use facial recognition as an upgrade to just face 
+detection. This way the user could pick someone out of a crowd to communicate with. The app 
+Would also be in the form of a an apk so that the user would be able to translate 
+On the spot as opposed to finding a computer. The user could open an app on their 
+phone and point the camera and start translating. Most obviously there needs to be a 
+a complete dictionary of translations so that a complete conversation could be held.
+
+
 INSTALLATION/CONFIGURATION
 
-Install vlc media player( https://www.videolan.org/vlc/ )
+Install vlc media player( https://www.videolan.org/vlc/ ) for audible translation.
 
 All the files in the manifest should be copied to the same folder. Openvino 
 environment variables should be sourced and the translator should be run with a 
@@ -37,7 +46,8 @@ f. argsparser
 
 OPERATION INSTRUCTIONS
 
-1.) In a terminal, change to the directory where all the files are located and run ‘python3 ASL.py’ (-v to set the video location 0 is default, -d to set the device, ‘CPU’ is default)
+1.) In a terminal, move to the directory where all the files are located and run ‘python3 ASL.py’ (-v to set the video location, 0 is default, -d to set the device, ‘CPU’ is default)
+Currently only CPU is supported for device
 
 2.) The app loops through a face detection model until a face is detected in view of the camera.
 

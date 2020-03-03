@@ -1,5 +1,7 @@
 # ASL TRANSLATOR
 Udacity 
+There is a short demonstration video in the repository, the full length video can be seen at...
+https://www.youtube.com/watch?v=GEAlWp5HQZQ
 
 BACKGROUND
 

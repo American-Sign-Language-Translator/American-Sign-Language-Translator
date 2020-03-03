@@ -11,9 +11,9 @@ need for a method for these people to communicate.
 
 A gesture recognition tool is an ideal solution for this issue. Being able to open an app on 
 your phone and communicate with people who are hard of hearing would not only provide relief 
-for those suffering from deafness but it would also provide 360 million people to contribute 
-in a meaningful way without being held back by not getting their ideas and their message 
-across to the hearing community. The ASL Translator is a demonstration of one possible 
+for those suffering from deafness but it would also provide 360 million people a method to 
+contribute in a meaningful way without being held back by not getting their ideas and their 
+message across to the hearing community. The ASL Translator is a demonstration of one possible 
 method for resolving this issue.
 
 ASL Translator is a gesture recognition app that uses previously trained models 
@@ -27,10 +27,13 @@ ADDONS
 
 Ideally the translator would use facial recognition as an upgrade to just face 
 detection. This way the user could pick someone out of a crowd to communicate with. The app 
-Would also be in the form of a an apk so that the user would be able to translate 
-On the spot as opposed to finding a computer. The user could open an app on their 
-phone and point the camera and start translating. Most obviously there needs to be a 
+would be more useful when installed on a phone, allowing the user to be able to translate 
+on the spot as opposed to finding a computer. The user could open an app on their 
+phone, point the camera and start translating. Most obviously there needs to be a 
 a complete dictionary of translations so that a complete conversation could be held.
+Also, the translator could serve as a ASL teacher. Signs.py already contains links to see a youtube
+video of the word the user is wanting to sign but a database somewhere of a complete dictionary
+of words that would be reachable at any time and would not change would work best.
 
 
 INSTALLATION/CONFIGURATION
@@ -68,7 +71,7 @@ Currently only CPU is supported for device
 3.) Once detection occurs, the sign language recognition model takes over. The user is cued to begin signing visually (the camera LED will blink once) and audibly (user will hear a 'beep').
 
 4.) The translator will recognize gestures from the MSASL-100 dataset (see 
-signs.py for the full list of recognized signs).
+signs.py for the full list of recognized signs and youtube links to see how to sign them).
 
 5.) The user is allowed 1 second per sign and can continue to sign until 
 the desired message is complete at which point the user should gesture the sign for 
@@ -112,7 +115,7 @@ features a default MobileNet backbone that includes depth-wise convolutions.
 Over 32,000 images were chosen and almost 400,000 faces were labeled with a 
 high degree of variability in scale, pose, illumination and occlusion. The 
 WIDER FACE dataset is organized based on 61 event classes. For each event class,
-we randomly select 40%/10%/50% data as training, validation and testing sets.
+they randomly selected 40%/10%/50% data as training, validation and testing sets.
 
 asl-recognition-0003 model uses the SD3 framework with a MobileNet V3 backbone. 
 The model uses the MS-ASL100 (Microsoft American Sign Language 100) data set to 

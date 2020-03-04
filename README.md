@@ -1,7 +1,9 @@
 # ASL TRANSLATOR
 Udacity 
 There is a short demonstration video in the repository, the full length video can be seen at...
-https://www.youtube.com/watch?v=GEAlWp5HQZQ
+https://www.youtube.com/watch?v=GEAlWp5HQZQ 
+The computerBlue.mp4 is a recording of the desktop
+as I was recording the above demo
 
 BACKGROUND
 

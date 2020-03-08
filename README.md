@@ -5,6 +5,8 @@ https://www.youtube.com/watch?v=GEAlWp5HQZQ
 The computerBlue.mp4 is a recording of the desktop
 as I was recording the above demo
 
+ASL_win.py is untested but is intended to add support for windows
+
 BACKGROUND
 
 An estimated 1 in 1000 babies are born deaf and it is the #1 birth defect in the US. 

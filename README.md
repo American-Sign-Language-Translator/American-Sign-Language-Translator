@@ -95,7 +95,7 @@ MANIFEST
 
 7 files need to be in the same folder.
 
-a.)  ASL.py
+a.)  ASL.py (update ASL_linux.py or ASL_win.py, not both)
 
 b.)  asl-recognition-0003.bin
 

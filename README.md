@@ -101,9 +101,9 @@ b.)  asl-recognition-0003.bin
 
 c.)  asl-recognition-0003.xml
 
-d.)  head-pose-estimation-adas-0001.bin
+d.)  Face-detection-adas-0001.bin
 
-e,)  head-pose-estimation-adas-0001.xml
+e,)  face-detection-adas-0001.xml
 
 f.)  inference.py
 

@@ -70,8 +70,8 @@ g. winsound (windows only)
 
 
 OPERATION INSTRUCTIONS
-
-1.) In a terminal, move to the directory where all the files are located and run ‘python3 ASL.py’ (-v to set the video location, 0 is default, -d to set the device, ‘CPU’ is default)
+Linux
+1.) In a terminal, move to the directory where all the files are located, run source setupvars to setup openvino enviornment variables and run ‘python3 ASL.py’ (-v to set the video location, 0 is default, -d to set the device, ‘CPU’ is default)
 Currently only CPU is supported for device
 
 2.) The app loops through a face detection model until a face is detected in view of the camera.

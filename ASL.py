@@ -11,27 +11,32 @@ def get_args():
     parser = argparse.ArgumentParser("Translate signs to audio/text")
     v_desc = "The location of video input, default is 0"
     d_desc = "The device type, default is 'CPU'"
+    
     parser._action_groups.pop()
     required = parser.add_argument_group('required arguments')
     optional = parser.add_argument_group('optional arguments')
+    
     optional.add_argument("-v", help=v_desc, default= int(0))
     optional.add_argument("-d", help=d_desc, default='CPU')
     args = parser.parse_args()
+    
     return args
 
-### active waits for a face to be detected then returns True for the asl recognition portion of the app
+### active waits for a face to be detected then returns True
 def active():
+### Load intermediate representation of face detection model 
     args = get_args()
-    xpath = 'face-detection-adas-0001.xml'
-    bpath = 'face-detection-adas-0001.bin'
-    net = cv2.dnn.readNet(xpath, bpath)
+    model = 'face-detection-adas-0001.xml'
+    weights = 'face-detection-adas-0001.bin'
+    net = cv2.dnn.readNet(model, weights)
     net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
+### Start video, unless args.v has been changed, the onboard camera (at 0) is started
     cap = cv2.VideoCapture(int(args.v))
     while cap.isOpened():
         ret,frame = cap.read()
         if frame is None:
             raise Exception('Cannot find camera, current location is 0')
- 
+### process network model output - bounding box with at least 50% confidence 
         blob = cv2.dnn.blobFromImage(frame, size=(672, 384), ddepth=cv2.CV_8U)
         net.setInput(blob)
         out = net.forward()
@@ -45,12 +50,12 @@ def active():
                 continue
             if confidence > 0.5:
                 cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (0, 0,255), 4)
+### display video 'q' to exit and release the camera
                 cv2.imshow('frame', frame)
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     cv2.destroyAllWindows()
                     cap.release()
-            cap.release()
-
+            cap.release()        
             return True
             
 
@@ -62,6 +67,7 @@ def sign_in():
     height, width = 224,224
     frame_list = [ ]
     frame_array = [ ]
+### The camera is again started, this causes the led to blink and cue the user to start signing
     cap = cv2.VideoCapture(int(0))
     while cap.isOpened():
         flag, frame = cap.read()
@@ -73,6 +79,7 @@ def sign_in():
             c+=1
         if cv2.waitKey(1) & 0xFF == ord('q') or c == 15:
             break
+### frame_list contains 16 frames that make up the word to be translated
     for i in frame_list:
         sframe = cv2.resize(i, (224, 224))
         frame_array.append(sframe)
@@ -82,18 +89,19 @@ def sign_in():
     return imarray
     
  
-### infer creates the intermediate representation of the asl model and processes the input to return a code for the translated word
+### infer creates the intermediate representation of the asl model and processes the inference to return
+### a code for the translated word
 def infer(imarray):
     model = "asl-recognition-0003.xml"
     inet = Network.net(model)
     exec_net = Network.load_model(inet, imarray, 'CPU')
     input_blob = next(iter(exec_net.inputs))
     input_layer = inet.inputs[input_blob].shape
-    ##### asynch
+    ##### asynchronous inference
     asy_net = Network.async_inference(exec_net, imarray, input_blob)
     output_blob = next(iter(exec_net.outputs))
     enc_net = exec_net.requests[0].outputs[output_blob]
-    ###### synch
+    ###### synch - uncomment the 2 lines below and comment out the 3 lines below async to switch to synchronous inference
     #syn_net = Network.inf_(exec_net, imarray, input_blob)
     #enc_net = Network.extract_output(syn_net, exec_net)
     ###### continue
@@ -107,7 +115,6 @@ def txtPlay(tx):
         tts = gTTS(text=str(tx), lang='en')
         tts.save("tx.mp3")
         os.system("cvlc -q --play-and-exit tx.mp3")
-    #os.system('play -nq -t alsa synth {} sine {}'.format(2, 0))
         main()
     except:
         exit()    
@@ -117,11 +124,12 @@ def txtPlay(tx):
 def decode(key):
     for j in MASL:
         if j['label'] == key:
+### print the translation to the screen
             print(j['org_text'])
             tx = j['org_text']
             return tx
 
-### manages the execition            
+### manages the execution            
 def main():
     go = 0
     phrase = [' ']
@@ -132,9 +140,11 @@ def main():
         elif activate is True:
             imarray = sign_in()
             inf = infer(imarray)
-            sgn = decode(inf) 
+            sgn = decode(inf)
+### Signing the word 'READ' will read back all signed words 
             if sgn != 'READ':
                 phrase.append(sgn)
+### Signing the word 'READ' again will exit
             elif sgn == 'READ':
                 replay = " ".join(phrase)
                 print(replay)

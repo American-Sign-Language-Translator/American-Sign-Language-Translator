@@ -1,4 +1,7 @@
 # ASL TRANSLATOR
+
+REQUIRED Openvino ver 2020.1
+
 Udacity 
 There is a short demonstration video in the repository, the full length video can be seen at...
 https://www.youtube.com/watch?v=GEAlWp5HQZQ 
@@ -43,6 +46,8 @@ of words that would be reachable at any time and would not change would work bes
 
 
 INSTALLATION/CONFIGURATION
+
+REQUIRED Openvino ver 2020.1 is required and it is assumed the setup is complete and all requirements have been installed and the test samples have been run.
 
 Install vlc media player( https://www.videolan.org/vlc/ ) for audible translation.
 

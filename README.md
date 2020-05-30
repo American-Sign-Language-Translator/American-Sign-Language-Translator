@@ -48,11 +48,11 @@ Install vlc media player( https://www.videolan.org/vlc/ ) for audible translatio
 
 All the files in the manifest should be copied to the same folder. Openvino 
 environment variables should be sourced and the translator should be run with a 
-python3 interpreter. The translator has been tested with Openvino 2020.1 and 
-Python3.6 but should work with any Python3 or recent Openvino version. 
+python3 interpreter. The translator has been tested with and requires Openvino 2020.1 and 
+Python3.6 to be installed. 
 The audible portion currently requires VLC media player to be installed and 
 an internet connection. To capture the ASL gestures for translation the camera 
-device id 0 (default). The ASL translator relies on the following python libraries…
+device id 0 (default). The ASL translator relies on the following python dependencies, (pip3 install)…
 
 a. OpenCV 4.0.1
 
